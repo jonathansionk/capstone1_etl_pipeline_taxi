@@ -1,0 +1,30 @@
+# versi dokcer compose
+version: "3.8"
+
+# Membuat container bernama etl-pipeline
+services:
+  etl-pipeline:
+
+    # Untuk menggunkan folder saat ini sebagai sumber project
+    build:
+      context: .
+
+      # Untuk membuat image dari dockerfile
+      dockerfile: Dockerfile
+
+    container_name: etl_pipeline_container
+
+    # Untuk mengirim variebl data url ke dalam container
+    environment:
+      -DATA_URL_TAXI: https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2026-01.parquet
+      -DATA_URL_ZONE: https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv 
+    
+    # Untuk membuat volume
+    volumes:
+    - ./data:/app/data
+    - ./logs:/app/logs
+
+    # Untuk menjalankan script pipeline.sh
+    command: ["bash", "pipeline.sh"]
+    
+
