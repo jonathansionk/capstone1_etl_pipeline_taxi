@@ -1,4 +1,4 @@
-# !/bin/bash (shell script)
+#!/bin/bash
 
 # Membuat folder logs
 mkdir -p logs
