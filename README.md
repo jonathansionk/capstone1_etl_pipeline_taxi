@@ -14,24 +14,29 @@ Extract → Transform → Load → Data Quality Check
 
 Berikut gambaran struktur folder project:
 
+```text
 capstone1_etl_pipeline_taxi/
 │
 ├── data/
 │   ├── raw/              # Folder untuk menyimpan hasil ekstrak data mentah
-│   ├── transformed/      # Folder untuk menyimpan hasil transformasi data, dalam bentuk parquet
-│   ├── mart/             # Folder untuk menyimpan hasil dari load data, dalam bentuk csv
-│   ├── mart_cleaned/     # Folder hasil cek quality data, data tidak valid disimpan karantina_data.csv, data valid disimpan ke file valid_data.csv 
-│   └── logs/             # Untuk menyimpan history activity 
+│   ├── transformed/      # Folder untuk menyimpan hasil transformasi data (parquet)
+│   ├── mart/             # Folder untuk menyimpan hasil load data (csv)
+│   ├── mart_cleaned/     # Folder hasil cek quality data
+│   │                     # data tidak valid → karantina_data.csv
+│   │                     # data valid → valid_data.csv
+│   └── logs/             # History aktivitas pipeline
 │
-├── docker-compose.yml    # Untuk membuat Containerization
-├── Dockerfile            # Untuk Build image Docker
+├── docker-compose.yml    # Container orchestration
+├── Dockerfile            # Build image Docker
+│
 ├── ekstrak.py            # Proses Extract data mentah
 ├── transform.py          # Proses Transform data
-├── load.py               # Proses Load data dan menyimopan dalam bentuk csv
-├── validasi_data.py      # Proses Cek Data quality
-├── pipeline.sh           # Script untuk menjalankan ETL pipeline
-├── requirements.txt      # Untuk menyimpan library yang dibutuhkan
-└── README.md             # Dokumentasi project
+├── load.py               # Proses Load data
+├── validasi_data.py     # Data quality check
+│
+├── pipeline.sh          # Script menjalankan ETL pipeline
+├── requirements.txt     # Library Python
+└── README.md            # Dokumentasi project
 
 # Tech Stack
 - Python 3.10
