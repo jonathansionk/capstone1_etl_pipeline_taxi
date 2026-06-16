@@ -18,25 +18,36 @@ Berikut gambaran struktur folder project:
 capstone1_etl_pipeline_taxi/
 │
 ├── data/
-│   ├── raw/              # Folder untuk menyimpan hasil ekstrak data mentah
-│   ├── transformed/      # Folder untuk menyimpan hasil transformasi data (parquet)
-│   ├── mart/             # Folder untuk menyimpan hasil load data (csv)
-│   ├── mart_cleaned/     # Folder hasil cek quality data
-│   │                     # data tidak valid → karantina_data.csv
-│   │                     # data valid → valid_data.csv
-│   └── logs/             # History aktivitas pipeline
+│   ├── mart/                                   # Folder untuk menyimpan hasil load data (csv)
+│   │   └── yellow_tripdata_2026-01.csv         # File hasil load data dari hasil transformasi dalam format csv
+│   │
+│   ├── mart_cleaned/                           # Folder hasil cek quality data
+│   │   ├── karantina_data.csv                  # Data tidak valid disimpan dalam file karantina_data.csv
+│   │   └── valid_data.csv                      # Data valid disimpan dalam file valid_data.csv
+│   │
+│   ├── raw/                                    # Folder untuk menyimpan hasil ekstrak data mentah
+│   │   ├── taxi_zone_lookup.csv                # File hasil ekstrak data mentah taxi_zone_lookup.csv 
+│   │   └── yellow_tripdata_2026-01.parquet     # File hasil ekstrak data mentah yellow_tripdata_2026-01.parquet
+│   │
+│   ├── transformed/                            # Folder untuk menyimpan hasil transformasi data (parquet)
+│   │   └── yellow_tripdata_2026-01.parquet     # File hasil transformasi data dalam format (parquet)
+│   │
+│   └── logs/                                   # Folder untuk menyimpan history aktivitas pipeline
+│       └── pipeline.log                        # File history aktivitas pipeline
 │
-├── docker-compose.yml    # Container orchestration
-├── Dockerfile            # Build image Docker
+├── docker-compose.yml      # Membuat Containerization
+├── Dockerfile              # Membuat image Docker
 │
-├── ekstrak.py            # Proses Extract data mentah
-├── transform.py          # Proses Transform data
-├── load.py               # Proses Load data
-├── validasi_data.py     # Data quality check
+├── ekstrak.py              # Proses Extract data mentah
+├── transform.py            # Proses Transform data
+├── load.py                 # Proses Load data
+├── validasi_data.py        # Data Quality Check
 │
-├── pipeline.sh          # Script menjalankan ETL pipeline
-├── requirements.txt     # Library Python
-└── README.md            # Dokumentasi project
+├── pipeline.sh             # Script menjalankan ETL pipeline secara otomatis
+├── requirements.txt        # List library yang dibutuhkan
+└── README.md               # Dokumentasi project
+
+```
 
 # Tech Stack
 - Python 3.10
