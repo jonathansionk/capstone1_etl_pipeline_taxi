@@ -3,13 +3,13 @@
 # Deskripsi Project
 Project ini merupakan Capstone Project Module 1 dari Bootcamp Data Engineer Purwadhika.
 
-Project ini bertujuan untuk membangun pipeline ETL (Extract, Transform, Load) secara otomatis menggunakan Python, Shell Script, Docker, dan Docker Compose. Pipeline ini memproses data taxi mulai dari tahap pengambilan data, transformasi data, penyimpanan hasil akhir, hingga pengecekan kualitas data.
+Project ini bertujuan untuk membangun pipeline ETL (Extract, Transform, Load) menggunakan Python, Shell Script, Docker, dan Docker Compose. Pipeline ini memproses data taxi mulai dari tahap pengambilan data, transformasi data, penyimpanan hasil akhir, hingga pengecekan kualitas data.
 
 # Workflow Pipeline
 Pipeline berjalan otomatis dengan urutan:
-
+```text
 Extract → Transform → Load → Data Quality Check
-
+```
 # Struktur Folder
 
 Berikut gambaran struktur folder project:
@@ -35,17 +35,17 @@ capstone1_etl_pipeline_taxi/
 │   └── logs/                                   # Folder untuk menyimpan history aktivitas pipeline
 │       └── pipeline.log                        # File history aktivitas pipeline
 │
-├── docker-compose.yml      # Membuat Containerization
-├── Dockerfile              # Membuat image Docker
+├── docker-compose.yml                          # Membuat Containerization
+├── Dockerfile                                  # Membuat image Docker
 │
-├── ekstrak.py              # Proses Extract data mentah
-├── transform.py            # Proses Transform data
-├── load.py                 # Proses Load data
-├── validasi_data.py        # Data Quality Check
+├── ekstrak.py                                  # Proses Extract data mentah
+├── transform.py                                # Proses Transform data
+├── load.py                                     # Proses Load data
+├── validasi_data.py                            # Data Quality Check
 │
-├── pipeline.sh             # Script menjalankan ETL pipeline secara otomatis
-├── requirements.txt        # List library yang dibutuhkan
-└── README.md               # Dokumentasi project
+├── pipeline.sh                                 # Script menjalankan ETL pipeline secara otomatis
+├── requirements.txt                            # List library yang dibutuhkan
+└── README.md                                   # Dokumentasi project
 
 ```
 
