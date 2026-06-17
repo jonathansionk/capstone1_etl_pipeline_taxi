@@ -12,7 +12,7 @@ log(){
 }
 
 # Membuat Header Pipeline
-echo "====================================" | tee -a $LOG_FILE
+echo "======================================" | tee -a $LOG_FILE
 log "Starting pipeline"
 
 
@@ -62,4 +62,4 @@ fi
 
 # Pipeline Selesai
 log "Pipeline Completed Successfully"
-echo "====================================" | tee -a $LOG_FILE
+echo "======================================" | tee -a $LOG_FILE
